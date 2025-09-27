@@ -1,4 +1,4 @@
-import { Project } from '../types/project';
+import { Project, ProjectFilter } from '../types/project';
 
 export const projects: Project[] = [
   {
@@ -12,6 +12,12 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/waliulrayhan/ecommerce-platform',
     featured: true,
     category: 'Full Stack',
+    tags: ['Web', 'E-Commerce', 'Payment Integration'],
+    status: 'completed',
+    year: '2024',
+    duration: '3 months',
+    teamSize: 1,
+    role: 'Full Stack Developer'
   },
   {
     id: '2',
@@ -24,6 +30,12 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/waliulrayhan/task-management-app',
     featured: true,
     category: 'Full Stack',
+    tags: ['Web', 'Real-time', 'Collaboration'],
+    status: 'completed',
+    year: '2024',
+    duration: '2 months',
+    teamSize: 2,
+    role: 'Lead Developer'
   },
   {
     id: '3',
@@ -36,6 +48,12 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/waliulrayhan/weather-dashboard',
     featured: true,
     category: 'Frontend',
+    tags: ['Web', 'API Integration', 'Data Visualization'],
+    status: 'completed',
+    year: '2024',
+    duration: '1 month',
+    teamSize: 1,
+    role: 'Frontend Developer'
   },
   {
     id: '4',
@@ -48,6 +66,12 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/waliulrayhan/portfolio',
     featured: false,
     category: 'Frontend',
+    tags: ['Web', 'Portfolio', 'Animation'],
+    status: 'maintenance',
+    year: '2024',
+    duration: '1 month',
+    teamSize: 1,
+    role: 'Full Stack Developer'
   },
   {
     id: '5',
@@ -60,6 +84,12 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/waliulrayhan/blog-platform',
     featured: false,
     category: 'Full Stack',
+    tags: ['Web', 'CMS', 'Content'],
+    status: 'completed',
+    year: '2023',
+    duration: '2 months',
+    teamSize: 1,
+    role: 'Full Stack Developer'
   },
   {
     id: '6',
@@ -72,5 +102,52 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/waliulrayhan/api-analytics',
     featured: false,
     category: 'Full Stack',
+    tags: ['Web', 'Analytics', 'Monitoring'],
+    status: 'completed',
+    year: '2023',
+    duration: '3 months',
+    teamSize: 3,
+    role: 'Frontend Lead'
   },
 ];
+
+// Project filtering utilities
+export const getUniqueCategories = (): ProjectFilter[] => {
+  const categories = projects.reduce((acc, project) => {
+    acc[project.category] = (acc[project.category] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  return Object.entries(categories).map(([name, count]) => ({
+    id: name.toLowerCase().replace(/\s+/g, '-'),
+    name,
+    count
+  }));
+};
+
+export const getUniqueTags = (): ProjectFilter[] => {
+  const tagCounts = projects.reduce((acc, project) => {
+    project.tags.forEach(tag => {
+      acc[tag] = (acc[tag] || 0) + 1;
+    });
+    return acc;
+  }, {} as Record<string, number>);
+
+  return Object.entries(tagCounts).map(([name, count]) => ({
+    id: name.toLowerCase().replace(/\s+/g, '-'),
+    name,
+    count
+  }));
+};
+
+export const filterProjects = (
+  projects: Project[],
+  activeCategory: string,
+  activeTag: string
+): Project[] => {
+  return projects.filter(project => {
+    const matchesCategory = activeCategory === 'all' || project.category === activeCategory;
+    const matchesTag = activeTag === 'all' || project.tags.includes(activeTag);
+    return matchesCategory && matchesTag;
+  });
+};
