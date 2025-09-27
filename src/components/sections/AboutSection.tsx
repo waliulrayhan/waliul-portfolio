@@ -1,29 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiCalendar, FiMapPin } from 'react-icons/fi';
-
-const education = [
-  {
-    degree: 'Bachelor of Science in Computer Science',
-    institution: 'University of Technology',
-    location: 'Dhaka, Bangladesh',
-    period: '2020 - 2024',
-    description: 'Specialized in Software Engineering and Web Development',
-  },
-  {
-    degree: 'Higher Secondary Certificate',
-    institution: 'Notre Dame College',
-    location: 'Dhaka, Bangladesh', 
-    period: '2018 - 2020',
-    description: 'Science Group with focus on Mathematics and Physics',
-  },
-];
+import { FiCalendar, FiMapPin, FiAward, FiBookOpen, FiUser, FiHeart } from 'react-icons/fi';
+import { education, personalInfo } from '../../data/about';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
+    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,102 +19,195 @@ export default function AboutSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             About Me
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Passionate developer with a love for creating innovative solutions
+            Passionate developer with a love for creating innovative solutions and meaningful user experiences
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Bio Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          
+          {/* Personal Bio Section */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="space-y-8"
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              My Journey
-            </h3>
-            <div className="prose prose-lg text-gray-600 dark:text-gray-300 max-w-none">
-              <p className="mb-4">
-                I'm a passionate full-stack developer with over 3 years of experience 
-                creating digital solutions that bridge the gap between design and functionality. 
-                My journey in tech started with curiosity and has evolved into a deep love 
-                for crafting exceptional user experiences.
-              </p>
-              <p className="mb-4">
-                I specialize in modern web technologies including React, Next.js, and Node.js, 
-                with a strong focus on writing clean, maintainable code. I believe in the power 
-                of collaboration and enjoy working with diverse teams to bring innovative ideas to life.
-              </p>
-              <p>
-                When I'm not coding, you can find me exploring new technologies, contributing to 
-                open source projects, or sharing knowledge with the developer community through 
-                blog posts and mentoring.
-              </p>
+            {/* Bio Card */}
+            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl mr-4">
+                  <FiUser className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  My Journey
+                </h3>
+              </div>
+              
+              <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p>{personalInfo.bio.intro}</p>
+                <p>{personalInfo.bio.expertise}</p>
+                <p>{personalInfo.bio.interests}</p>
+              </div>
             </div>
 
-            {/* Skills */}
-            <div className="mt-8">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                Core Technologies
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 
-                  'Python', 'PostgreSQL', 'MongoDB', 'AWS', 'Docker'
-                ].map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium"
+            {/* Core Values */}
+            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-xl mr-4">
+                  <FiHeart className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  What I Value
+                </h3>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-3">
+                {personalInfo.coreValues.map((value, index) => (
+                  <motion.div
+                    key={value}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg"
                   >
-                    {skill}
-                  </span>
+                    <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-3"></div>
+                    <span className="text-gray-700 dark:text-gray-300 font-medium">
+                      {value}
+                    </span>
+                  </motion.div>
                 ))}
+              </div>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl p-6 text-center">
+                <div className="text-2xl font-bold mb-1">{personalInfo.experience}</div>
+                <div className="text-sm opacity-90">Experience</div>
+              </div>
+              <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-xl p-6 text-center">
+                <div className="text-2xl font-bold mb-1">50+</div>
+                <div className="text-sm opacity-90">Projects</div>
               </div>
             </div>
           </motion.div>
 
-          {/* Education Section */}
+          {/* Education Timeline Section */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Education
-            </h3>
-            <div className="space-y-6">
-              {education.map((edu, index) => (
-                <div
-                  key={index}
-                  className="border-l-4 border-blue-500 pl-6 pb-6 relative"
-                >
-                  <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-2 top-1"></div>
-                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      {edu.degree}
-                    </h4>
-                    <p className="text-blue-600 dark:text-blue-400 font-medium mb-2">
-                      {edu.institution}
-                    </p>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="flex items-center">
-                        <FiCalendar className="mr-1 h-4 w-4" />
-                        {edu.period}
-                      </div>
-                      <div className="flex items-center">
-                        <FiMapPin className="mr-1 h-4 w-4" />
-                        {edu.location}
-                      </div>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      {edu.description}
-                    </p>
-                  </div>
+            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-8">
+                <div className="p-3 bg-green-100 dark:bg-green-900/30 rounded-xl mr-4">
+                  <FiBookOpen className="h-6 w-6 text-green-600 dark:text-green-400" />
                 </div>
-              ))}
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  Education
+                </h3>
+              </div>
+              
+              <div className="relative">
+                {/* Timeline Line */}
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-purple-400 to-green-400"></div>
+                
+                <div className="space-y-8">
+                  {education.map((edu, index) => (
+                    <motion.div
+                      key={edu.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.2 }}
+                      viewport={{ once: true }}
+                      className="relative pl-16"
+                    >
+                      {/* Timeline Dot */}
+                      <div className="absolute left-4 w-4 h-4 bg-white dark:bg-gray-900 border-4 border-blue-500 rounded-full shadow-lg"></div>
+                      
+                      {/* Education Card */}
+                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 hover:shadow-md transition-shadow duration-300">
+                        <div className="mb-4">
+                          <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                            {edu.degree}
+                          </h4>
+                          <p className="text-blue-600 dark:text-blue-400 font-semibold mb-2">
+                            {edu.institution}
+                          </p>
+                          
+                          {/* Meta Info */}
+                          <div className="flex flex-wrap gap-4 mb-3 text-sm text-gray-600 dark:text-gray-400">
+                            <div className="flex items-center">
+                              <FiCalendar className="mr-2 h-4 w-4" />
+                              {edu.period}
+                            </div>
+                            <div className="flex items-center">
+                              <FiMapPin className="mr-2 h-4 w-4" />
+                              {edu.location}
+                            </div>
+                            {edu.gpa && (
+                              <div className="flex items-center">
+                                <FiAward className="mr-2 h-4 w-4" />
+                                GPA: {edu.gpa}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-700 dark:text-gray-300 mb-4">
+                          {edu.description}
+                        </p>
+
+                        {/* Honors */}
+                        {edu.honors && edu.honors.length > 0 && (
+                          <div className="mb-4">
+                            <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                              Honors & Awards:
+                            </h5>
+                            <div className="space-y-1">
+                              {edu.honors.map((honor, honorIndex) => (
+                                <div key={honorIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></div>
+                                  {honor}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Key Coursework */}
+                        {edu.coursework && edu.coursework.length > 0 && (
+                          <div>
+                            <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                              Key Coursework:
+                            </h5>
+                            <div className="flex flex-wrap gap-2">
+                              {edu.coursework.slice(0, 4).map((course, courseIndex) => (
+                                <span
+                                  key={courseIndex}
+                                  className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-md text-xs font-medium"
+                                >
+                                  {course}
+                                </span>
+                              ))}
+                              {edu.coursework.length > 4 && (
+                                <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-md text-xs font-medium">
+                                  +{edu.coursework.length - 4} more
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
