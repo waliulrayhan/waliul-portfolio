@@ -1,84 +1,183 @@
 'use client';
 
-import { FiDownload, FiMail, FiArrowRight } from 'react-icons/fi';
+import { FiDownload, FiMail, FiArrowRight, FiCode, FiLayers } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function HeroSection() {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center">
+    <section 
+      id="home" 
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 dark:from-gray-900 dark:via-blue-950/20 dark:to-purple-950/10 pt-16"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+        {/* Two-column layout: Text on left, Image on right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column - Text Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            className="text-center lg:text-left order-2 lg:order-1"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-              <span className="block">Hi, I'm</span>
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Waliul Rayhan
-              </span>
-            </h1>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
-          >
-            Full Stack Developer & UI/UX Enthusiast crafting digital experiences
-            that make a difference
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              <FiDownload className="mr-2 h-5 w-5" />
-              Download CV
-            </a>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-base font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 transform hover:scale-105"
-            >
-              <FiMail className="mr-2 h-5 w-5" />
-              Contact Me
-              <FiArrowRight className="ml-2 h-4 w-4" />
-            </a>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="mt-12"
-          >
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-              Specializing in
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'UI/UX Design'].map((tech, index) => (
-                <span
-                  key={tech}
-                  className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium shadow-sm border border-gray-200 dark:border-gray-700"
-                  style={{
-                    animationDelay: `${index * 0.1}s`,
-                    animation: 'fadeInUp 0.6s ease-out forwards',
-                  }}
-                >
-                  {tech}
+            {/* Main Heading */}
+            <div className="mb-6">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-lg font-medium text-blue-600 dark:text-blue-400 mb-2"
+              >
+                👋 Hello, I'm
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
+              >
+                <span className="block">Waliul</span>
+                <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
+                  Rayhan
                 </span>
-              ))}
+              </motion.h1>
+            </div>
+
+            {/* Tagline/Subheading */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
+            >
+              Full Stack Developer & UI/UX Enthusiast crafting{' '}
+              <span className="text-blue-600 dark:text-blue-400 font-semibold">
+                digital experiences
+              </span>{' '}
+              that make a difference
+            </motion.p>
+
+            {/* Primary CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8"
+            >
+              {/* Download CV Button */}
+              <a
+                href="/resume.pdf"
+                download="Waliul_Rayhan_Resume.pdf"
+                className="group inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full sm:w-auto"
+                aria-label="Download resume as PDF"
+              >
+                <FiDownload className="mr-3 h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+                Download CV
+                <div className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <FiArrowRight className="h-4 w-4" />
+                </div>
+              </a>
+
+              {/* Contact Me Button */}
+              <a
+                href="#contact"
+                onClick={(e) => handleSmoothScroll(e, 'contact')}
+                className="group inline-flex items-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-base font-medium rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 w-full sm:w-auto"
+                aria-label="Contact me"
+              >
+                <FiMail className="mr-3 h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+                Contact Me
+                <FiArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />
+              </a>
+            </motion.div>
+
+            {/* Tech Stack Tags */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.9 }}
+              className="hidden lg:block"
+            >
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 font-medium">
+                Specializing in:
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'UI/UX'].map((tech, index) => (
+                  <motion.span
+                    key={tech}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 1 + index * 0.1 }}
+                    className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300"
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column - Profile Image/Illustration */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative order-1 lg:order-2 flex justify-center lg:justify-end"
+          >
+            <div className="relative">
+              {/* Background decoration */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-3xl transform rotate-6 scale-105 opacity-20"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-teal-500 rounded-3xl transform -rotate-3 scale-110 opacity-10"></div>
+              
+              {/* Profile Image Container */}
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700">
+                {/* Placeholder for profile image - you can replace with actual image */}
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-center space-y-6">
+                    {/* Icon illustration */}
+                    <div className="flex justify-center space-x-4">
+                      <div className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-2xl">
+                        <FiCode className="h-12 w-12 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <div className="p-4 bg-purple-100 dark:bg-purple-900/30 rounded-2xl">
+                        <FiLayers className="h-12 w-12 text-purple-600 dark:text-purple-400" />
+                      </div>
+                    </div>
+                    <div className="px-8">
+                      <p className="text-gray-600 dark:text-gray-400 font-medium">
+                        Full Stack Developer
+                      </p>
+                      <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
+                        Building the future, one line of code at a time
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating elements */}
+              <motion.div
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute -top-4 -right-4 w-16 h-16 bg-yellow-400 rounded-full opacity-80 blur-sm"
+              ></motion.div>
+              <motion.div
+                animate={{ y: [10, -10, 10] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute -bottom-4 -left-4 w-12 h-12 bg-green-400 rounded-full opacity-60 blur-sm"
+              ></motion.div>
             </div>
           </motion.div>
         </div>
@@ -88,10 +187,10 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1, repeat: Infinity, repeatType: 'reverse' }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        transition={{ duration: 0.8, delay: 1.5, repeat: Infinity, repeatType: 'reverse', repeatDelay: 1 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block"
       >
-        <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-500 rounded-full flex justify-center">
+        <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-500 rounded-full flex justify-center cursor-pointer hover:border-blue-500 dark:hover:border-blue-400 transition-colors duration-300">
           <div className="w-1 h-3 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"></div>
         </div>
       </motion.div>
