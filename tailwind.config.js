@@ -51,7 +51,7 @@ module.exports = {
         sm: "0.25rem",
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Inter'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],
