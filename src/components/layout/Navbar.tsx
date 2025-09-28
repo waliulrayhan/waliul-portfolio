@@ -96,7 +96,7 @@ export default function Navbar() {
       <Link 
         href="#home" 
         onClick={(e) => handleSmoothScroll(e, '#home')}
-        className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:opacity-80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm font-great-vibes inline-block px-1"
+        className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent hover:opacity-80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded-sm font-great-vibes inline-block px-1"
         style={{ overflow: 'visible' }}
       >
         Waliul Rayhan
@@ -112,7 +112,7 @@ export default function Navbar() {
             key={item.name}
             href={item.href}
             onClick={(e) => handleSmoothScroll(e, item.href)}
-            className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-gray-50"
+            className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50"
           >
             {item.name}
           </a>
@@ -127,7 +127,7 @@ export default function Navbar() {
         href={RESUME_CONFIG.path}
         download={RESUME_CONFIG.filename}
         aria-label="Download CV as PDF"
-        className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:shadow-md transform hover:scale-105 h-9 px-4"
+        className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:from-blue-700 hover:to-teal-700 hover:shadow-md transform hover:scale-105 h-9 px-4"
       >
         <FiDownload className="mr-2 h-4 w-4" />
         Download CV
@@ -141,7 +141,7 @@ export default function Navbar() {
         href={RESUME_CONFIG.path}
         download={RESUME_CONFIG.filename}
         aria-label="Download CV"
-        className="hidden sm:inline-flex items-center justify-center rounded-md text-xs sm:text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 h-8 px-2 sm:px-3 whitespace-nowrap"
+        className="hidden sm:inline-flex items-center justify-center rounded-md text-xs sm:text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:opacity-90 h-8 px-2 sm:px-3 whitespace-nowrap"
       >
         <FiDownload className="h-3 w-3 sm:h-4 sm:w-4" />
         <span className="ml-1 hidden md:inline">CV</span>
@@ -205,7 +205,7 @@ export default function Navbar() {
                   href={item.href}
                   onClick={(e) => handleSmoothScroll(e, item.href)}
                   className={cn(
-                    "block px-4 py-3 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-gray-50 transform w-full text-left",
+                    "block px-4 py-3 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50 transform w-full text-left",
                     isOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
                   )}
                   style={{
@@ -222,7 +222,7 @@ export default function Navbar() {
                 href={RESUME_CONFIG.path}
                 download={RESUME_CONFIG.filename}
                 className={cn(
-                  "flex items-center justify-center w-full px-4 py-3 text-base font-medium bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:scale-[0.98]",
+                  "flex items-center justify-center w-full px-4 py-3 text-base font-medium bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:from-blue-700 hover:to-teal-700 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transform hover:scale-[0.98]",
                   isOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
                 )}
                 style={{
