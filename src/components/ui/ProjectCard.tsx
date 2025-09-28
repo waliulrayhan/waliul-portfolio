@@ -7,14 +7,14 @@ interface ProjectCardProps {
 }
 
 const statusColors = {
-  completed: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400',
-  'in-progress': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400',
-  maintenance: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400'
+  completed: 'bg-green-100 text-green-800',
+  'in-progress': 'bg-yellow-100 text-yellow-800',
+  maintenance: 'bg-blue-100 text-blue-800'
 };
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-200 dark:border-gray-700 relative">
+    <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-gray-200 relative">
       {/* Project Image */}
       <div className="relative h-56 overflow-hidden">
         <Image
@@ -56,11 +56,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {/* Header with Title and Status */}
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1 min-w-0">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 line-clamp-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+            <h3 className="text-xl font-bold text-gray-900 mb-1 line-clamp-1 group-hover:text-blue-600 transition-colors duration-300">
               {project.title}
             </h3>
             {project.role && (
-              <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+              <p className="text-sm text-gray-500 font-medium">
                 {project.role}
               </p>
             )}
@@ -69,14 +69,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <span className={`px-2 py-1 text-xs font-medium rounded-full whitespace-nowrap ${statusColors[project.status]}`}>
               {project.status.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
             </span>
-            <span className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full whitespace-nowrap">
+            <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full whitespace-nowrap">
               {project.category}
             </span>
           </div>
         </div>
 
         {/* Description */}
-        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 leading-relaxed">
+        <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
           {project.description}
         </p>
 
@@ -85,7 +85,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full text-xs font-medium hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-900/40 dark:hover:to-purple-900/40 transition-all duration-300"
+              className="px-3 py-1 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border border-blue-200 rounded-full text-xs font-medium hover:from-blue-100 hover:to-purple-100 transition-all duration-300"
             >
               {tag}
             </span>
@@ -98,13 +98,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {project.technologies.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+                className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-xs font-medium hover:bg-gray-200 transition-colors duration-300"
               >
                 {tech}
               </span>
             ))}
             {project.technologies.length > 4 && (
-              <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-lg text-xs font-medium">
+              <span className="px-3 py-1 bg-gray-100 text-gray-500 rounded-lg text-xs font-medium">
                 +{project.technologies.length - 4} more
               </span>
             )}
@@ -130,7 +130,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium text-sm hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+              className="flex items-center gap-2 px-4 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium text-sm hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
               aria-label={`View source code of ${project.title}`}
             >
               <FiGithub className="h-4 w-4" />

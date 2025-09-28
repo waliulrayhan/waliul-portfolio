@@ -2,7 +2,6 @@
 
 import { FiDownload, FiMail, FiArrowRight, FiCode, FiLayers } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 export default function HeroSection() {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -19,7 +18,7 @@ export default function HeroSection() {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 dark:from-gray-900 dark:via-blue-950/20 dark:to-purple-950/10 pt-16"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 pt-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         {/* Two-column layout: Text on left, Image on right */}
@@ -38,7 +37,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg font-medium text-blue-600 dark:text-blue-400 mb-2"
+                className="text-lg font-medium text-blue-600 mb-2"
               >
                 👋 Hello, I'm
               </motion.p>
@@ -46,7 +45,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight"
               >
                 <span className="block">Waliul</span>
                 <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
@@ -60,10 +59,10 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
+              className="text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
             >
               Full Stack Developer & UI/UX Enthusiast crafting{' '}
-              <span className="text-blue-600 dark:text-blue-400 font-semibold">
+              <span className="text-blue-600 font-semibold">
                 digital experiences
               </span>{' '}
               that make a difference
@@ -94,7 +93,7 @@ export default function HeroSection() {
               <a
                 href="#contact"
                 onClick={(e) => handleSmoothScroll(e, 'contact')}
-                className="group inline-flex items-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-base font-medium rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 w-full sm:w-auto"
+                className="group inline-flex items-center px-8 py-4 border-2 border-gray-300 text-base font-medium rounded-xl text-gray-700 hover:bg-gray-50 hover:border-blue-400 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 w-full sm:w-auto"
                 aria-label="Contact me"
               >
                 <FiMail className="mr-3 h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
@@ -110,7 +109,7 @@ export default function HeroSection() {
               transition={{ duration: 1, delay: 0.9 }}
               className="hidden lg:block"
             >
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 font-medium">
+              <p className="text-sm text-gray-500 mb-4 font-medium">
                 Specializing in:
               </p>
               <div className="flex flex-wrap gap-3">
@@ -120,7 +119,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: 1 + index * 0.1 }}
-                    className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300"
+                    className="px-4 py-2 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm border border-gray-200 hover:shadow-md hover:border-blue-300 transition-all duration-300"
                   >
                     {tech}
                   </motion.span>
@@ -142,24 +141,24 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-teal-500 rounded-3xl transform -rotate-3 scale-110 opacity-10"></div>
               
               {/* Profile Image Container */}
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700">
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-50 to-purple-50 border border-gray-200">
                 {/* Placeholder for profile image - you can replace with actual image */}
                 <div className="w-full h-full flex items-center justify-center">
                   <div className="text-center space-y-6">
                     {/* Icon illustration */}
                     <div className="flex justify-center space-x-4">
-                      <div className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-2xl">
-                        <FiCode className="h-12 w-12 text-blue-600 dark:text-blue-400" />
+                      <div className="p-4 bg-blue-100 rounded-2xl">
+                        <FiCode className="h-12 w-12 text-blue-600" />
                       </div>
-                      <div className="p-4 bg-purple-100 dark:bg-purple-900/30 rounded-2xl">
-                        <FiLayers className="h-12 w-12 text-purple-600 dark:text-purple-400" />
+                      <div className="p-4 bg-purple-100 rounded-2xl">
+                        <FiLayers className="h-12 w-12 text-purple-600" />
                       </div>
                     </div>
                     <div className="px-8">
-                      <p className="text-gray-600 dark:text-gray-400 font-medium">
+                      <p className="text-gray-600 font-medium">
                         Full Stack Developer
                       </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
+                      <p className="text-sm text-gray-500 mt-2">
                         Building the future, one line of code at a time
                       </p>
                     </div>
@@ -190,8 +189,8 @@ export default function HeroSection() {
         transition={{ duration: 0.8, delay: 1.5, repeat: Infinity, repeatType: 'reverse', repeatDelay: 1 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block"
       >
-        <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-500 rounded-full flex justify-center cursor-pointer hover:border-blue-500 dark:hover:border-blue-400 transition-colors duration-300">
-          <div className="w-1 h-3 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"></div>
+        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center cursor-pointer hover:border-blue-500 transition-colors duration-300">
+          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2"></div>
         </div>
       </motion.div>
     </section>

@@ -19,7 +19,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const isExternal = !!post.externalUrl;
 
   const CardContent = () => (
-    <div className={`group bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-200 dark:border-gray-700 relative ${
+    <div className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-200 relative ${
       featured ? 'lg:flex lg:items-center' : ''
     }`}>
       {/* Blog Image */}
@@ -54,8 +54,8 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         {/* External Link Indicator */}
         {isExternal && (
           <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full p-2">
-              <FiExternalLink className="h-4 w-4 text-gray-700 dark:text-gray-300" />
+            <div className="bg-white/90 backdrop-blur-sm rounded-full p-2">
+              <FiExternalLink className="h-4 w-4 text-gray-700" />
             </div>
           </div>
         )}
@@ -64,7 +64,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
       {/* Blog Content */}
       <div className={`p-6 ${featured ? 'lg:w-1/2 lg:p-8' : ''}`}>
         {/* Meta Information */}
-        <div className="flex items-center gap-4 mb-4 text-sm text-gray-500 dark:text-gray-400">
+        <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
           <div className="flex items-center gap-1">
             <FiUser className="h-4 w-4" />
             <span>{post.author}</span>
@@ -80,14 +80,14 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className={`font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 ${
+        <h3 className={`font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300 ${
           featured ? 'text-2xl lg:text-3xl' : 'text-xl'
         }`}>
           {post.title}
         </h3>
 
         {/* Excerpt */}
-        <p className={`text-gray-600 dark:text-gray-300 mb-4 leading-relaxed ${
+        <p className={`text-gray-600 mb-4 leading-relaxed ${
           featured ? 'text-base line-clamp-4' : 'text-sm line-clamp-3'
         }`}>
           {post.excerpt}
@@ -98,14 +98,14 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
           {post.tags.slice(0, featured ? 6 : 3).map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-300"
+              className="inline-flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium hover:bg-blue-50 hover:text-blue-700 transition-all duration-300"
             >
               <FiTag className="h-3 w-3" />
               {tag}
             </span>
           ))}
           {post.tags.length > (featured ? 6 : 3) && (
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full text-xs font-medium">
+            <span className="px-3 py-1 bg-gray-100 text-gray-500 rounded-full text-xs font-medium">
               +{post.tags.length - (featured ? 6 : 3)} more
             </span>
           )}
@@ -113,7 +113,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
 
         {/* Read More Button */}
         <div className="flex items-center justify-between">
-          <div className={`inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium group-hover:gap-3 transition-all duration-300 ${
+          <div className={`inline-flex items-center gap-2 text-blue-600 font-medium group-hover:gap-3 transition-all duration-300 ${
             featured ? 'text-base' : 'text-sm'
           }`}>
             <span>Read More</span>

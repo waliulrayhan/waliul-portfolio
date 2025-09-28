@@ -1,14 +1,16 @@
 import { forwardRef } from 'react';
 import clsx from 'clsx';
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Additional props can be added here if needed
+}
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
       className={clsx(
-        'rounded-lg border border-border bg-card text-card-foreground shadow-sm',
+        'rounded-lg border border-gray-200 bg-white text-gray-900 shadow-sm',
         className
       )}
       {...props}
@@ -46,7 +48,7 @@ const CardDescription = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HT
   ({ className, ...props }, ref) => (
     <p
       ref={ref}
-      className={clsx('text-sm text-muted-foreground', className)}
+      className={clsx('text-sm text-gray-600', className)}
       {...props}
     />
   )

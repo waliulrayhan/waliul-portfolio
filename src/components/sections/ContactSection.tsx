@@ -138,24 +138,24 @@ export default function ContactSection() {
       name: 'GitHub',
       href: 'https://github.com/waliulrayhan',
       icon: FiGithub,
-      color: 'hover:text-gray-900 dark:hover:text-white'
+      color: 'hover:text-gray-900'
     },
     {
       name: 'LinkedIn',
       href: 'https://linkedin.com/in/waliulrayhan',
       icon: FiLinkedin,
-      color: 'hover:text-blue-600 dark:hover:text-blue-400'
+      color: 'hover:text-blue-600'
     },
     {
       name: 'Twitter',
       href: 'https://twitter.com/waliulrayhan',
       icon: FiTwitter,
-      color: 'hover:text-blue-500 dark:hover:text-blue-300'
+      color: 'hover:text-blue-500'
     }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
+    <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -165,11 +165,11 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Get In Touch
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Have a project in mind or just want to chat? I'd love to hear from you. 
             Let's discuss how we can work together to bring your ideas to life.
           </p>
@@ -186,16 +186,16 @@ export default function ContactSection() {
             className="space-y-8"
           >
             {/* Intro */}
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-blue-100 dark:border-blue-800">
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
               <div className="flex items-center mb-4">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl mr-4">
-                  <FiMessageCircle className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                <div className="p-3 bg-blue-100 rounded-xl mr-4">
+                  <FiMessageCircle className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900">
                   Let's Connect
                 </h3>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed">
                 I'm always excited to discuss new opportunities, interesting projects, 
                 or just have a friendly conversation about technology, development, 
                 and the future of web applications.
@@ -203,8 +203,8 @@ export default function ContactSection() {
             </div>
 
             {/* Contact Information */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h4 className="text-xl font-semibold text-gray-900 mb-6">
                 Contact Information
               </h4>
               <div className="space-y-6">
@@ -212,17 +212,17 @@ export default function ContactSection() {
                   const Icon = contact.icon;
                   const content = (
                     <div className="flex items-center group">
-                      <div className="flex-shrink-0 w-12 h-12 bg-white dark:bg-gray-700 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                        <Icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                        <Icon className="h-6 w-6 text-blue-600" />
                       </div>
                       <div className="ml-4 flex-1">
-                        <p className="text-sm font-medium text-gray-900 dark:text-white">
+                        <p className="text-sm font-medium text-gray-900">
                           {contact.label}
                         </p>
-                        <p className="text-gray-700 dark:text-gray-300 font-medium">
+                        <p className="text-gray-700 font-medium">
                           {contact.value}
                         </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        <p className="text-xs text-gray-500">
                           {contact.description}
                         </p>
                       </div>
@@ -237,7 +237,7 @@ export default function ContactSection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="block hover:bg-white dark:hover:bg-gray-700 p-3 rounded-xl transition-all duration-300 -m-3"
+                      className="block hover:bg-white p-3 rounded-xl transition-all duration-300 -m-3"
                       aria-label={`Contact via ${contact.label}: ${contact.value}`}
                     >
                       {content}
@@ -259,11 +259,11 @@ export default function ContactSection() {
             </div>
 
             {/* Social Links */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h4 className="text-xl font-semibold text-gray-900 mb-6">
                 Follow Me
               </h4>
-              <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
+              <p className="text-gray-600 mb-6 text-sm">
                 Connect with me on social media for updates, tech discussions, and more.
               </p>
               <div className="flex gap-4">
@@ -279,7 +279,7 @@ export default function ContactSection() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className={`flex items-center justify-center w-12 h-12 bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-gray-600 dark:text-gray-400 ${social.color} transform hover:scale-105`}
+                      className={`flex items-center justify-center w-12 h-12 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-gray-600 ${social.color} transform hover:scale-105`}
                       aria-label={`Visit my ${social.name} profile`}
                     >
                       <Icon className="h-5 w-5" />
@@ -297,8 +297,8 @@ export default function ContactSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Send Message
               </h3>
               
@@ -306,11 +306,11 @@ export default function ContactSection() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg"
+                  className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg"
                 >
                   <div className="flex items-center">
-                    <FiCheckCircle className="h-5 w-5 text-green-600 dark:text-green-400 mr-2" />
-                    <p className="text-green-700 dark:text-green-300 text-sm font-medium">
+                    <FiCheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                    <p className="text-green-700 text-sm font-medium">
                       Message sent successfully! I'll get back to you soon.
                     </p>
                   </div>
@@ -321,11 +321,11 @@ export default function ContactSection() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
+                  className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg"
                 >
                   <div className="flex items-center">
-                    <FiAlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 mr-2" />
-                    <p className="text-red-700 dark:text-red-300 text-sm font-medium">
+                    <FiAlertCircle className="h-5 w-5 text-red-600 mr-2" />
+                    <p className="text-red-700 text-sm font-medium">
                       There was an error sending your message. Please try again.
                     </p>
                   </div>
@@ -337,7 +337,7 @@ export default function ContactSection() {
                 <div>
                   <label 
                     htmlFor="name" 
-                    className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
+                    className="block text-sm font-medium text-gray-900 mb-2"
                   >
                     Full Name *
                   </label>
@@ -350,15 +350,15 @@ export default function ContactSection() {
                     required
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "name-error" : undefined}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all duration-300 ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
                       errors.name 
-                        ? 'border-red-500 dark:border-red-400' 
-                        : 'border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500'
+                        ? 'border-red-500' 
+                        : 'border-gray-300 hover:border-gray-400'
                     }`}
                     placeholder="Your full name"
                   />
                   {errors.name && (
-                    <p id="name-error" className="mt-1 text-sm text-red-600 dark:text-red-400" role="alert">
+                    <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">
                       {errors.name}
                     </p>
                   )}
@@ -368,7 +368,7 @@ export default function ContactSection() {
                 <div>
                   <label 
                     htmlFor="email" 
-                    className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
+                    className="block text-sm font-medium text-gray-900 mb-2"
                   >
                     Email Address *
                   </label>
@@ -381,15 +381,15 @@ export default function ContactSection() {
                     required
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "email-error" : undefined}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all duration-300 ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
                       errors.email 
-                        ? 'border-red-500 dark:border-red-400' 
-                        : 'border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500'
+                        ? 'border-red-500' 
+                        : 'border-gray-300 hover:border-gray-400'
                     }`}
                     placeholder="your.email@example.com"
                   />
                   {errors.email && (
-                    <p id="email-error" className="mt-1 text-sm text-red-600 dark:text-red-400" role="alert">
+                    <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
                       {errors.email}
                     </p>
                   )}
@@ -399,7 +399,7 @@ export default function ContactSection() {
                 <div>
                   <label 
                     htmlFor="subject" 
-                    className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
+                    className="block text-sm font-medium text-gray-900 mb-2"
                   >
                     Subject *
                   </label>
@@ -411,10 +411,10 @@ export default function ContactSection() {
                     required
                     aria-invalid={!!errors.subject}
                     aria-describedby={errors.subject ? "subject-error" : undefined}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all duration-300 ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
                       errors.subject 
-                        ? 'border-red-500 dark:border-red-400' 
-                        : 'border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500'
+                        ? 'border-red-500' 
+                        : 'border-gray-300 hover:border-gray-400'
                     }`}
                   >
                     <option value="">Select a subject</option>
@@ -426,7 +426,7 @@ export default function ContactSection() {
                     <option value="Other">Other</option>
                   </select>
                   {errors.subject && (
-                    <p id="subject-error" className="mt-1 text-sm text-red-600 dark:text-red-400" role="alert">
+                    <p id="subject-error" className="mt-1 text-sm text-red-600" role="alert">
                       {errors.subject}
                     </p>
                   )}
@@ -436,7 +436,7 @@ export default function ContactSection() {
                 <div>
                   <label 
                     htmlFor="message" 
-                    className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
+                    className="block text-sm font-medium text-gray-900 mb-2"
                   >
                     Message *
                   </label>
@@ -449,19 +449,19 @@ export default function ContactSection() {
                     rows={6}
                     aria-invalid={!!errors.message}
                     aria-describedby={errors.message ? "message-error" : undefined}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white resize-none transition-all duration-300 ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none transition-all duration-300 ${
                       errors.message 
-                        ? 'border-red-500 dark:border-red-400' 
-                        : 'border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500'
+                        ? 'border-red-500' 
+                        : 'border-gray-300 hover:border-gray-400'
                     }`}
                     placeholder="Tell me about your project, ask a question, or just say hi! I'd love to hear from you."
                   />
                   {errors.message && (
-                    <p id="message-error" className="mt-1 text-sm text-red-600 dark:text-red-400" role="alert">
+                    <p id="message-error" className="mt-1 text-sm text-red-600" role="alert">
                       {errors.message}
                     </p>
                   )}
-                  <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                  <p className="mt-1 text-xs text-gray-500">
                     {formData.message.length}/500 characters
                   </p>
                 </div>
@@ -474,7 +474,7 @@ export default function ContactSection() {
                   whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                   className={`w-full font-medium py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 ${
                     isSubmitting
-                      ? 'bg-gray-400 dark:bg-gray-600 cursor-not-allowed'
+                      ? 'bg-gray-400 cursor-not-allowed'
                       : 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
                   }`}
                 >
@@ -493,7 +493,7 @@ export default function ContactSection() {
               </form>
 
               <div className="mt-6 text-center">
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-gray-600">
                   I typically respond within 24 hours. For urgent matters, feel free to call!
                 </p>
               </div>

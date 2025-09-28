@@ -6,7 +6,7 @@ import { education, personalInfo } from '../../data/about';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -16,11 +16,11 @@ export default function AboutSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             About Me
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Passionate developer with a love for creating innovative solutions and meaningful user experiences
           </p>
         </motion.div>
@@ -38,15 +38,15 @@ export default function AboutSection() {
             {/* Bio Card */}
             <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
               <div className="flex items-center mb-6">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl mr-4">
-                  <FiUser className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                <div className="p-3 bg-blue-100 rounded-xl mr-4">
+                  <FiUser className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900">
                   My Journey
                 </h3>
               </div>
               
-              <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+              <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>{personalInfo.bio.intro}</p>
                 <p>{personalInfo.bio.expertise}</p>
                 <p>{personalInfo.bio.interests}</p>
@@ -54,12 +54,12 @@ export default function AboutSection() {
             </div>
 
             {/* Core Values */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
               <div className="flex items-center mb-6">
-                <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-xl mr-4">
-                  <FiHeart className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                <div className="p-3 bg-purple-100 rounded-xl mr-4">
+                  <FiHeart className="h-6 w-6 text-purple-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900">
                   What I Value
                 </h3>
               </div>
@@ -72,10 +72,10 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg"
+                    className="flex items-center p-3 bg-gray-50 rounded-lg"
                   >
                     <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-3"></div>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">
+                    <span className="text-gray-700 font-medium">
                       {value}
                     </span>
                   </motion.div>
@@ -103,12 +103,12 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
               <div className="flex items-center mb-8">
-                <div className="p-3 bg-green-100 dark:bg-green-900/30 rounded-xl mr-4">
-                  <FiBookOpen className="h-6 w-6 text-green-600 dark:text-green-400" />
+                <div className="p-3 bg-green-100 rounded-xl mr-4">
+                  <FiBookOpen className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900">
                   Education
                 </h3>
               </div>
@@ -128,20 +128,20 @@ export default function AboutSection() {
                       className="relative pl-16"
                     >
                       {/* Timeline Dot */}
-                      <div className="absolute left-4 w-4 h-4 bg-white dark:bg-gray-900 border-4 border-blue-500 rounded-full shadow-lg"></div>
+                      <div className="absolute left-4 w-4 h-4 bg-white border-4 border-blue-500 rounded-full shadow-lg"></div>
                       
                       {/* Education Card */}
-                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 hover:shadow-md transition-shadow duration-300">
+                      <div className="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow duration-300">
                         <div className="mb-4">
-                          <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                          <h4 className="text-lg font-bold text-gray-900 mb-2">
                             {edu.degree}
                           </h4>
-                          <p className="text-blue-600 dark:text-blue-400 font-semibold mb-2">
+                          <p className="text-blue-600 font-semibold mb-2">
                             {edu.institution}
                           </p>
                           
                           {/* Meta Info */}
-                          <div className="flex flex-wrap gap-4 mb-3 text-sm text-gray-600 dark:text-gray-400">
+                          <div className="flex flex-wrap gap-4 mb-3 text-sm text-gray-600">
                             <div className="flex items-center">
                               <FiCalendar className="mr-2 h-4 w-4" />
                               {edu.period}
@@ -159,19 +159,19 @@ export default function AboutSection() {
                           </div>
                         </div>
                         
-                        <p className="text-gray-700 dark:text-gray-300 mb-4">
+                        <p className="text-gray-700 mb-4">
                           {edu.description}
                         </p>
 
                         {/* Honors */}
                         {edu.honors && edu.honors.length > 0 && (
                           <div className="mb-4">
-                            <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                            <h5 className="text-sm font-semibold text-gray-900 mb-2">
                               Honors & Awards:
                             </h5>
                             <div className="space-y-1">
                               {edu.honors.map((honor, honorIndex) => (
-                                <div key={honorIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                                <div key={honorIndex} className="flex items-center text-sm text-gray-600">
                                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></div>
                                   {honor}
                                 </div>
@@ -183,20 +183,20 @@ export default function AboutSection() {
                         {/* Key Coursework */}
                         {edu.coursework && edu.coursework.length > 0 && (
                           <div>
-                            <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                            <h5 className="text-sm font-semibold text-gray-900 mb-2">
                               Key Coursework:
                             </h5>
                             <div className="flex flex-wrap gap-2">
                               {edu.coursework.slice(0, 4).map((course, courseIndex) => (
                                 <span
                                   key={courseIndex}
-                                  className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-md text-xs font-medium"
+                                  className="px-2 py-1 bg-blue-100 text-blue-700 rounded-md text-xs font-medium"
                                 >
                                   {course}
                                 </span>
                               ))}
                               {edu.coursework.length > 4 && (
-                                <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-md text-xs font-medium">
+                                <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-md text-xs font-medium">
                                   +{edu.coursework.length - 4} more
                                 </span>
                               )}

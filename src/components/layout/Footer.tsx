@@ -23,12 +23,12 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700" role="contentinfo">
+    <footer className="bg-gray-50 border-t border-gray-200" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Copyright */}
           <div className="text-center md:text-left">
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
+            <p className="text-gray-600 text-sm">
               © {new Date().getFullYear()} Waliul Rayhan. All rights reserved.
             </p>
           </div>
@@ -44,7 +44,7 @@ export default function Footer() {
                   href={link.href}
                   target={isEmail ? undefined : "_blank"}
                   rel={isEmail ? undefined : "noopener noreferrer"}
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200 flex items-center space-x-1 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded-md p-1"
+                  className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center space-x-1 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded-md p-1"
                   aria-label={link.ariaLabel}
                 >
                   <Icon className="h-5 w-5" aria-hidden="true" />
@@ -61,7 +61,7 @@ export default function Footer() {
             <a
               href="/resume.pdf"
               download="Waliul_Rayhan_Resume.pdf"
-              className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded px-2 py-1"
+              className="text-gray-600 hover:text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded px-2 py-1"
               aria-label="Download resume as PDF"
             >
               Resume
@@ -70,9 +70,9 @@ export default function Footer() {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+        <div className="mt-6 pt-6 border-t border-gray-200">
           <div className="text-center">
-            <p className="text-xs text-gray-500 dark:text-gray-500">
+            <p className="text-xs text-gray-500">
               Built with Next.js, TypeScript, and Tailwind CSS • Designed with accessibility in mind
             </p>
           </div>

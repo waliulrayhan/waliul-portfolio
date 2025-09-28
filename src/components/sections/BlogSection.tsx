@@ -35,7 +35,7 @@ export default function BlogSection() {
   };
 
   return (
-    <section id="blog" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="blog" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -45,11 +45,11 @@ export default function BlogSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Latest Blog Posts
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Sharing knowledge, insights, and experiences from my journey in web development, 
             technology trends, and software engineering best practices.
           </p>
@@ -65,7 +65,7 @@ export default function BlogSection() {
             className="mb-16"
           >
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+              <h3 className="text-2xl font-bold text-gray-900 flex items-center">
                 <span className="bg-gradient-to-r from-yellow-400 to-orange-500 w-3 h-3 rounded-full mr-3"></span>
                 Featured Articles
               </h3>
@@ -95,14 +95,14 @@ export default function BlogSection() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
               <div className="flex flex-col lg:flex-row gap-6">
                 {/* Filter Header */}
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                    <FiFilter className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                  <div className="p-2 bg-blue-100 rounded-lg">
+                    <FiFilter className="h-5 w-5 text-blue-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-semibold text-gray-900">
                     Filter Articles
                   </h3>
                 </div>
@@ -110,7 +110,7 @@ export default function BlogSection() {
                 <div className="flex-1 space-y-4">
                   {/* Category Filter */}
                   <div>
-                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
+                    <label className="text-sm font-medium text-gray-700 mb-2 block">
                       Category
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -119,7 +119,7 @@ export default function BlogSection() {
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                           activeCategory === 'all'
                             ? 'bg-blue-500 text-white shadow-lg scale-105'
-                            : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-300 dark:border-gray-600'
+                            : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
                         }`}
                       >
                         All ({blogPosts.length})
@@ -131,7 +131,7 @@ export default function BlogSection() {
                           className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                             activeCategory === category.name
                               ? 'bg-blue-500 text-white shadow-lg scale-105'
-                              : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-300 dark:border-gray-600'
+                              : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
                           }`}
                         >
                           {category.name} ({category.count})
@@ -142,7 +142,7 @@ export default function BlogSection() {
 
                   {/* Tag Filter */}
                   <div>
-                    <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
+                    <label className="text-sm font-medium text-gray-700 mb-2 block">
                       Tags
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -151,7 +151,7 @@ export default function BlogSection() {
                         className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
                           activeTag === 'all'
                             ? 'bg-purple-500 text-white shadow-lg scale-105'
-                            : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-300 dark:border-gray-600'
+                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-300'
                         }`}
                       >
                         All Tags
@@ -163,7 +163,7 @@ export default function BlogSection() {
                           className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
                             activeTag === tag.name
                               ? 'bg-purple-500 text-white shadow-lg scale-105'
-                              : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-300 dark:border-gray-600'
+                              : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-300'
                           }`}
                         >
                           {tag.name} ({tag.count})
@@ -178,18 +178,18 @@ export default function BlogSection() {
                   {(activeCategory !== 'all' || activeTag !== 'all') && (
                     <button
                       onClick={resetFilters}
-                      className="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-all duration-300"
+                      className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-all duration-300"
                     >
                       Clear Filters
                     </button>
                   )}
-                  <div className="flex border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden">
+                  <div className="flex border border-gray-300 rounded-lg overflow-hidden">
                     <button
                       onClick={() => setViewMode('grid')}
                       className={`p-2 ${
                         viewMode === 'grid'
                           ? 'bg-blue-500 text-white'
-                          : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600'
+                          : 'bg-white text-gray-600 hover:bg-gray-100'
                       } transition-colors duration-300`}
                       title="Grid view"
                     >
@@ -200,7 +200,7 @@ export default function BlogSection() {
                       className={`p-2 ${
                         viewMode === 'list'
                           ? 'bg-blue-500 text-white'
-                          : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600'
+                          : 'bg-white text-gray-600 hover:bg-gray-100'
                       } transition-colors duration-300`}
                       title="List view"
                     >
@@ -220,7 +220,7 @@ export default function BlogSection() {
             animate={{ opacity: 1 }}
             className="mb-8"
           >
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-600">
               Showing {filteredPosts.length} of {blogPosts.length} articles
               {activeCategory !== 'all' && ` in ${activeCategory}`}
               {activeTag !== 'all' && ` tagged with ${activeTag}`}
@@ -238,7 +238,7 @@ export default function BlogSection() {
         >
           {!showAllPosts && (
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+              <h3 className="text-2xl font-bold text-gray-900 flex items-center">
                 <span className="bg-gradient-to-r from-blue-400 to-purple-500 w-3 h-3 rounded-full mr-3"></span>
                 Recent Articles
               </h3>
@@ -274,11 +274,11 @@ export default function BlogSection() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-12"
           >
-            <div className="text-gray-400 dark:text-gray-500 text-6xl mb-4">📚</div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            <div className="text-gray-400 text-6xl mb-4">📚</div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">
               No articles found
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-gray-600 mb-4">
               Try adjusting your filters to see more articles.
             </p>
             <button
@@ -309,7 +309,7 @@ export default function BlogSection() {
           ) : (
             <button
               onClick={() => setShowAllPosts(false)}
-              className="inline-flex items-center gap-3 px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center gap-3 px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-xl font-medium hover:bg-gray-50 hover:border-blue-400 transition-all duration-300 transform hover:scale-105"
             >
               <FiBookOpen className="h-5 w-5" />
               Show Recent Only
@@ -321,7 +321,7 @@ export default function BlogSection() {
               href="/blog/rss.xml"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-all duration-300"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-all duration-300"
             >
               <FiRss className="h-4 w-4" />
               RSS Feed
