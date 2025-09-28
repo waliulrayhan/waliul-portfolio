@@ -92,11 +92,12 @@ export default function Navbar() {
   );
 
   const renderLogo = () => (
-    <div className="flex-shrink-0 min-w-0">
+    <div className="flex-shrink-0 min-w-0 px-2">
       <Link 
         href="#home" 
         onClick={(e) => handleSmoothScroll(e, '#home')}
-        className="text-2xl sm:text-3xl font-normal bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:opacity-80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm truncate font-great-vibes"
+        className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:opacity-80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm font-great-vibes inline-block px-1"
+        style={{ overflow: 'visible' }}
       >
         Waliul Rayhan
       </Link>
