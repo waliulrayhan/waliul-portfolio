@@ -8,8 +8,9 @@ import { cn } from '../../lib/utils';
 const navigation = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
+  { name: 'Experience', href: '#experience' },
   { name: 'Blog', href: '#blog' },
+  { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -78,7 +79,8 @@ export default function Navbar() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
         scrolled 
           ? "bg-white/98 backdrop-blur-md border-b border-gray-200 shadow-sm" 
-          : "bg-white/95 backdrop-blur-sm border-b border-gray-200"
+          : "bg-white/95 backdrop-blur-sm border-b border-gray-200",
+        isOpen && "bg-gray-50/98 backdrop-blur-md border-b border-gray-300"
       )}
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,8 +92,8 @@ export default function Navbar() {
               onClick={(e) => handleSmoothScroll(e, '#home')}
               className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:opacity-80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm truncate"
             >
-              <span className="hidden sm:inline">Waliul Rayhan</span>
-              <span className="sm:hidden">W. Rayhan</span>
+              <span className="hidden sm:inline">Waliul Islam</span>
+              <span className="sm:hidden">Waliul Islam</span>
             </Link>
           </div>
 
@@ -141,19 +143,19 @@ export default function Navbar() {
             <button
               id="mobile-menu-button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 flex-shrink-0"
+              className={cn(
+                "p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200 rounded-md focus:outline-none flex-shrink-0",
+                isOpen ? "bg-gray-100 text-gray-900" : ""
+              )}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
             >
-              <div className="relative w-5 h-5 sm:w-6 sm:h-6">
-                <span className={cn(
-                  "absolute inset-0 transition-all duration-300 ease-in-out",
-                  isOpen ? "rotate-45 opacity-100" : "rotate-0 opacity-100"
-                )}>
-                  {isOpen ? <FiX className="w-5 h-5 sm:w-6 sm:h-6" /> : <FiMenu className="w-5 h-5 sm:w-6 sm:h-6" />}
-                </span>
-              </div>
+              {isOpen ? (
+                <FiX className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" />
+              ) : (
+                <FiMenu className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" />
+              )}
             </button>
           </div>
         </div>
