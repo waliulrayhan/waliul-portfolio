@@ -58,7 +58,7 @@ export const projects: Project[] = [
   {
     id: '4',
     title: 'Portfolio Website',
-    description: 'A modern, responsive portfolio website built with Next.js, featuring dark mode, smooth animations, and optimized performance.',
+    description: 'A modern, responsive portfolio website built with Next.js, featuring smooth animations, and optimized performance.',
     longDescription: 'This portfolio showcases my work and skills with a focus on performance, accessibility, and user experience. Built with modern web technologies.',
     image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],

@@ -36,7 +36,7 @@ export default function AboutSection() {
             className="space-y-8"
           >
             {/* Bio Card */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
               <div className="flex items-center mb-6">
                 <div className="p-3 bg-blue-100 rounded-xl mr-4">
                   <FiUser className="h-6 w-6 text-blue-600" />

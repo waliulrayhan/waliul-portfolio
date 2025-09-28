@@ -68,7 +68,7 @@ export default function ProjectsSection() {
               <div className="flex-1 space-y-4">
                 {/* Category Filter */}
                 <div>
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
+                  <label className="text-sm font-medium text-gray-700 mb-2 block">
                     Category
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -186,7 +186,7 @@ export default function ProjectsSection() {
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (
           <div className="mb-16">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
               <span className="bg-gradient-to-r from-yellow-400 to-orange-500 w-3 h-3 rounded-full mr-3"></span>
               Featured Projects
             </h3>
