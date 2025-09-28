@@ -81,9 +81,9 @@ export default function Navbar() {
   const getNavbarStyles = () => cn(
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
     scrolled 
-      ? "bg-white/98 backdrop-blur-md border-b border-gray-200 shadow-sm" 
-      : "bg-white/95 backdrop-blur-sm border-b border-gray-200",
-    isOpen && "bg-gray-100/98 backdrop-blur-md border-b border-gray-400 shadow-md"
+      ? "bg-white/70 backdrop-blur-lg border-b border-gray-200/50 shadow-sm" 
+      : "bg-white/60 backdrop-blur-md border-b border-gray-200/30",
+    isOpen && "bg-white/80 backdrop-blur-xl border-b border-gray-400/60 shadow-md"
   );
 
   const getMobileMenuButtonStyles = () => cn(
@@ -189,14 +189,14 @@ export default function Navbar() {
         {/* Backdrop */}
         <div 
           className={cn(
-            "absolute inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 w-full h-screen",
+            "absolute inset-0 bg-black/10 backdrop-blur-sm transition-opacity duration-300 w-full h-screen",
             isOpen ? "opacity-100" : "opacity-0"
           )}
           onClick={() => setIsOpen(false)}
         />
         
         {/* Menu Content */}
-        <div className="relative bg-white/98 backdrop-blur-md border-b border-gray-200 shadow-lg w-full">
+        <div className="relative bg-white backdrop-blur-none border-b border-gray-200 shadow-lg w-full">
           <div className="px-4 sm:px-6 py-4 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto w-full">
             <div className="space-y-1 w-full">
               {NAVIGATION_ITEMS.map((item, index) => (
