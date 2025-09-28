@@ -168,10 +168,18 @@ export const metadata: Metadata = {
   
   // Verification
   verification: {
-    google: "your-google-verification-code", // Replace with actual verification code
+    google: "your-google-verification-code", // Replace with actual verification code from Google Search Console
     // other: {
-    //   "msvalidate.01": "your-bing-verification-code",
+    //   "msvalidate.01": "your-bing-verification-code", // For Bing Webmaster Tools
     // },
+  },
+  
+  // Additional structured data for SEO
+  other: {
+    "google-site-verification": "your-google-verification-code",
+    "application-name": "Waliul Rayhan Portfolio",
+    "msapplication-TileColor": "#3b82f6",
+    "theme-color": "#ffffff",
   },
 };
 
