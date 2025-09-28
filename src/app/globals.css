@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
-/* Global styles for light theme only */
-
-* {
-  border-color: #e2e8f0;
+/* Prevent horizontal scrolling on mobile, allow proper desktop sizing */
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
+  overflow-x: hidden;
   background-color: #ffffff;
   color: #0f172a;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -15,9 +17,23 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+/* Ensure all containers respect viewport width on mobile */
+* {
+  border-color: #e2e8f0;
+  box-sizing: border-box;
+}
+
+/* Force text wrapping for better mobile experience */
+@media (max-width: 768px) {
+  * {
+    max-width: 100vw;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p, span, div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
 }
 
 /* Utility Classes */

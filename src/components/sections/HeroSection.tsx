@@ -45,7 +45,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight"
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight break-words"
               >
                 <span className="block">Waliul</span>
                 <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
@@ -141,7 +141,7 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-teal-500 rounded-3xl transform -rotate-3 scale-110 opacity-10"></div>
               
               {/* Profile Image Container */}
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-50 to-purple-50 border border-gray-200">
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-50 to-purple-50 border border-gray-200">
                 {/* Placeholder for profile image - you can replace with actual image */}
                 <div className="w-full h-full flex items-center justify-center">
                   <div className="text-center space-y-6">
@@ -170,12 +170,12 @@ export default function HeroSection() {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-4 -right-4 w-16 h-16 bg-yellow-400 rounded-full opacity-80 blur-sm"
+                className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 bg-yellow-400 rounded-full opacity-80 blur-sm"
               ></motion.div>
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -bottom-4 -left-4 w-12 h-12 bg-green-400 rounded-full opacity-60 blur-sm"
+                className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-10 h-10 sm:w-12 sm:h-12 bg-green-400 rounded-full opacity-60 blur-sm"
               ></motion.div>
             </div>
           </motion.div>
