@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const greatVibes = Great_Vibes({
+  weight: "400",
+  variable: "--font-great-vibes",
   subsets: ["latin"],
 });
 
@@ -41,7 +47,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
       </head>
       <body
-        className={`${inter.variable} font-sans antialiased overflow-x-hidden`}
+        className={`${inter.variable} ${greatVibes.variable} font-sans antialiased overflow-x-hidden`}
       >
         <div className="min-h-screen flex flex-col overflow-x-hidden">
           <Navbar />

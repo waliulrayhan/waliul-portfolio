@@ -52,6 +52,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter'],
+        'great-vibes': ['var(--font-great-vibes)', 'Great Vibes', 'cursive'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],

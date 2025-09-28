@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import "tailwindcss";
 
 /* Prevent horizontal scrolling on mobile, allow proper desktop sizing */
@@ -15,6 +16,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* Font Classes */
+.font-great-vibes {
+  font-family: 'Great Vibes', cursive !important;
 }
 
 /* Ensure all containers respect viewport width on mobile */
