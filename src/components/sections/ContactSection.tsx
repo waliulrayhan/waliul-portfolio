@@ -92,7 +92,7 @@ export default function ContactSection() {
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
       setErrors({});
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -170,8 +170,8 @@ export default function ContactSection() {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Have a project in mind or just want to chat? I'd love to hear from you. 
-            Let's discuss how we can work together to bring your ideas to life.
+            Have a project in mind or just want to chat? I&apos;d love to hear from you. 
+            Let&apos;s discuss how we can work together to bring your ideas to life.
           </p>
         </motion.div>
 
@@ -192,11 +192,11 @@ export default function ContactSection() {
                   <FiMessageCircle className="h-6 w-6 text-blue-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">
-                  Let's Connect
+                  Let&apos;s Connect
                 </h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                I'm always excited to discuss new opportunities, interesting projects, 
+                I&apos;m always excited to discuss new opportunities, interesting projects, 
                 or just have a friendly conversation about technology, development, 
                 and the future of web applications.
               </p>
@@ -311,7 +311,7 @@ export default function ContactSection() {
                   <div className="flex items-center">
                     <FiCheckCircle className="h-5 w-5 text-green-600 mr-2" />
                     <p className="text-green-700 text-sm font-medium">
-                      Message sent successfully! I'll get back to you soon.
+                      Message sent successfully! I&apos;ll get back to you soon.
                     </p>
                   </div>
                 </motion.div>

@@ -1,9 +1,8 @@
 import { forwardRef } from 'react';
 import clsx from 'clsx';
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  // Additional props can be added here if needed
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, ...props }, ref) => (

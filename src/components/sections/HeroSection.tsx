@@ -39,7 +39,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-lg font-medium text-blue-600 mb-2"
               >
-                👋 Hello, I'm
+                👋 Hello, I&apos;m
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
