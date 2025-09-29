@@ -1,16 +1,19 @@
 import HeroSection from '../components/sections/HeroSection';
-import AboutSection from '../components/sections/AboutSection';
-import ProjectsSection from '../components/sections/ProjectsSection';
-import BlogSection from '../components/sections/BlogSection';
+import SimpleAboutSection from '../components/sections/SimpleAboutSection';
+import LatestBlogSection from '../components/sections/LatestBlogSection';
 import ContactSection from '../components/sections/ContactSection';
+
+export const metadata = {
+  title: 'Waliul Rayhan - Full Stack Developer & UI/UX Enthusiast',
+  description: 'Welcome to my portfolio! I\'m a passionate Full Stack Developer creating innovative digital experiences with React, Next.js, and modern technologies.',
+};
 
 export default function Home() {
   return (
     <div className="overflow-x-hidden">
       <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <BlogSection />
+      <SimpleAboutSection />
+      <LatestBlogSection />
       <ContactSection />
     </div>
   );

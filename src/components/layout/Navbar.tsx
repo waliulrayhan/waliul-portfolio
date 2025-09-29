@@ -6,12 +6,13 @@ import { FiMenu, FiX, FiDownload } from 'react-icons/fi';
 import { cn } from '../../lib/utils';
 
 const NAVIGATION_ITEMS = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/', isExternal: false },
+  { name: 'About', href: '/about', isExternal: false },
+  { name: 'Experience', href: '/experience', isExternal: false },
+  { name: 'Projects', href: '/projects', isExternal: false },
+  { name: 'Blog', href: '/blog', isExternal: false },
+  { name: 'Achievements', href: '/achievements', isExternal: false },
+  { name: 'Contact', href: '#contact', isExternal: true },
 ] as const;
 
 const RESUME_CONFIG = {
@@ -64,6 +65,9 @@ export default function Navbar() {
   }, [isOpen]);
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Only handle smooth scroll for anchor links (Contact section)
+    if (!href.startsWith('#')) return;
+    
     e.preventDefault();
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
@@ -94,8 +98,7 @@ export default function Navbar() {
   const renderLogo = () => (
     <div className="flex-shrink-0 min-w-0 px-2">
       <Link 
-        href="#home" 
-        onClick={(e) => handleSmoothScroll(e, '#home')}
+        href="/" 
         className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent hover:opacity-80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded-sm font-great-vibes inline-block px-1"
         style={{ overflow: 'visible' }}
       >
@@ -108,14 +111,24 @@ export default function Navbar() {
     <div className="hidden lg:block">
       <div className="flex items-center space-x-1">
         {NAVIGATION_ITEMS.map((item) => (
-          <a
-            key={item.name}
-            href={item.href}
-            onClick={(e) => handleSmoothScroll(e, item.href)}
-            className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50"
-          >
-            {item.name}
-          </a>
+          item.isExternal ? (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={(e) => handleSmoothScroll(e, item.href)}
+              className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50"
+            >
+              {item.name}
+            </a>
+          ) : (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50"
+            >
+              {item.name}
+            </Link>
+          )
         ))}
       </div>
     </div>
@@ -200,20 +213,37 @@ export default function Navbar() {
           <div className="px-4 sm:px-6 py-4 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto w-full">
             <div className="space-y-1 w-full">
               {NAVIGATION_ITEMS.map((item, index) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleSmoothScroll(e, item.href)}
-                  className={cn(
-                    "block px-4 py-3 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50 transform w-full text-left",
-                    isOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
-                  )}
-                  style={{
-                    transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
-                  }}
-                >
-                  {item.name}
-                </a>
+                item.isExternal ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleSmoothScroll(e, item.href)}
+                    className={cn(
+                      "block px-4 py-3 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50 transform w-full text-left",
+                      isOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
+                    )}
+                    style={{
+                      transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
+                    }}
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "block px-4 py-3 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50 transform w-full text-left",
+                      isOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
+                    )}
+                    style={{
+                      transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </div>
             

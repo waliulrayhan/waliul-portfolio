@@ -1,7 +1,8 @@
 'use client';
 
-import { FiDownload, FiMail, FiArrowRight, FiCode, FiLayers } from 'react-icons/fi';
+import { FiDownload, FiMail, FiArrowRight, FiCode, FiLayers, FiUser, FiBriefcase } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function HeroSection() {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -75,19 +76,18 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.7 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8"
             >
-              {/* Download CV Button */}
-              <a
-                href="/resume.pdf"
-                download="Waliul_Rayhan_Resume.pdf"
+              {/* View My Work Button */}
+              <Link
+                href="/projects"
                 className="group inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full sm:w-auto"
-                aria-label="Download resume as PDF"
+                aria-label="View my projects and work"
               >
-                <FiDownload className="mr-3 h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-                Download CV
+                <FiCode className="mr-3 h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+                View My Work
                 <div className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <FiArrowRight className="h-4 w-4" />
                 </div>
-              </a>
+              </Link>
 
               {/* Contact Me Button */}
               <a
@@ -99,6 +99,38 @@ export default function HeroSection() {
                 <FiMail className="mr-3 h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                 Contact Me
                 <FiArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />
+              </a>
+            </motion.div>
+
+            {/* Secondary Action Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center mb-8"
+            >
+              <Link
+                href="/about"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors duration-200"
+              >
+                <FiUser className="mr-2 h-4 w-4" />
+                About Me
+              </Link>
+              <Link
+                href="/experience"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-purple-600 hover:text-purple-700 transition-colors duration-200"
+              >
+                <FiBriefcase className="mr-2 h-4 w-4" />
+                Experience
+              </Link>
+              <a
+                href="/resume.pdf"
+                download="Waliul_Rayhan_Resume.pdf"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-700 transition-colors duration-200"
+                aria-label="Download resume as PDF"
+              >
+                <FiDownload className="mr-2 h-4 w-4" />
+                Download CV
               </a>
             </motion.div>
 
