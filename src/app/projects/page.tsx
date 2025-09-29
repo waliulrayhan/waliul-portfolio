@@ -1,4 +1,5 @@
 import ProjectsSection from '../../components/sections/ProjectsSection';
+import PageWrapper from '../../components/common/PageWrapper';
 
 export const metadata = {
   title: 'Projects - Waliul Rayhan',
@@ -7,8 +8,8 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="pt-16">
+    <PageWrapper className="pt-16">
       <ProjectsSection />
-    </div>
+    </PageWrapper>
   );
 }

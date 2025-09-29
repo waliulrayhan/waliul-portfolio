@@ -1,4 +1,5 @@
 import AchievementsSection from '../../components/sections/AchievementsSection';
+import PageWrapper from '../../components/common/PageWrapper';
 
 export const metadata = {
   title: 'Achievements - Waliul Rayhan',
@@ -7,8 +8,8 @@ export const metadata = {
 
 export default function AchievementsPage() {
   return (
-    <div className="pt-16">
+    <PageWrapper className="pt-16">
       <AchievementsSection />
-    </div>
+    </PageWrapper>
   );
 }

@@ -1,4 +1,5 @@
 import ExperienceSection from '../../components/sections/ExperienceSection';
+import PageWrapper from '../../components/common/PageWrapper';
 
 export const metadata = {
   title: 'Experience - Waliul Rayhan',
@@ -7,8 +8,8 @@ export const metadata = {
 
 export default function ExperiencePage() {
   return (
-    <div className="pt-16">
+    <PageWrapper className="pt-16">
       <ExperienceSection />
-    </div>
+    </PageWrapper>
   );
 }

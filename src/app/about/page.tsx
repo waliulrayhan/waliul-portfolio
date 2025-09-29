@@ -1,4 +1,5 @@
 import AboutSection from '../../components/sections/AboutSection';
+import PageWrapper from '../../components/common/PageWrapper';
 
 export const metadata = {
   title: 'About - Waliul Rayhan',
@@ -7,8 +8,8 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="pt-16">
+    <PageWrapper className="pt-16">
       <AboutSection />
-    </div>
+    </PageWrapper>
   );
 }

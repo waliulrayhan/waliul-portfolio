@@ -1,4 +1,5 @@
 import BlogSection from '../../components/sections/BlogSection';
+import PageWrapper from '../../components/common/PageWrapper';
 
 export const metadata = {
   title: 'Blog - Waliul Rayhan',
@@ -7,8 +8,8 @@ export const metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="pt-16">
+    <PageWrapper className="pt-16">
       <BlogSection />
-    </div>
+    </PageWrapper>
   );
 }

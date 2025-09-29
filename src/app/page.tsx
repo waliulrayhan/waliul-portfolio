@@ -2,6 +2,7 @@ import HeroSection from '../components/sections/HeroSection';
 import SimpleAboutSection from '../components/sections/SimpleAboutSection';
 import LatestBlogSection from '../components/sections/LatestBlogSection';
 import ContactSection from '../components/sections/ContactSection';
+import PageWrapper from '../components/common/PageWrapper';
 
 export const metadata = {
   title: 'Waliul Rayhan - Full Stack Developer & UI/UX Enthusiast',
@@ -10,11 +11,11 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="overflow-x-hidden">
+    <PageWrapper className="overflow-x-hidden">
       <HeroSection />
       <SimpleAboutSection />
       <LatestBlogSection />
       <ContactSection />
-    </div>
+    </PageWrapper>
   );
 }

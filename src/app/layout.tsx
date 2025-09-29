@@ -3,6 +3,7 @@ import { Inter, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import ClientWrapper from "../components/common/ClientWrapper";
 
 // Font configurations
 const inter = Inter({
@@ -209,11 +210,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <div className="min-h-screen flex flex-col overflow-x-hidden">
           <Navbar />
           <main 
-            className="flex-grow overflow-x-hidden"
+            className="flex-grow overflow-x-hidden relative"
             role="main"
             id="main-content"
           >
-            {children}
+            <ClientWrapper>
+              {children}
+            </ClientWrapper>
           </main>
           <Footer />
         </div>
