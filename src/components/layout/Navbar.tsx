@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FiMenu, FiX, FiHome, FiUser, FiBriefcase, FiFolder, FiEdit3, FiAward, FiMail } from 'react-icons/fi';
 import { cn } from '../../lib/utils';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const NAVIGATION_ITEMS = [
   { name: 'Home', href: '/', isExternal: false, icon: FiHome },
@@ -23,6 +23,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   // Set client flag after mount to prevent hydration issues
   useEffect(() => {
@@ -77,13 +78,29 @@ export default function Navbar() {
     
     e.preventDefault();
     const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
     
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+    // If we're not on the home page, navigate to home first
+    if (pathname !== '/') {
+      router.push('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      }, 500); // Increased timeout to ensure page loads
+    } else {
+      // We're already on home page, just scroll
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
     }
     
     setIsOpen(false);
@@ -132,7 +149,7 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
-                className="relative flex items-center space-x-1 text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-200 focus:outline-none group"
+                className="relative flex items-center space-x-1 text-gray-600 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-all duration-200 focus:outline-none group"
               >
                 <IconComponent className="w-4 h-4" />
                 <span>{item.name}</span>
@@ -144,14 +161,14 @@ export default function Navbar() {
                 className={cn(
                   "relative flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-all duration-200 focus:outline-none group",
                   isActive 
-                    ? "text-blue-600" 
-                    : "text-gray-600 hover:text-blue-600"
+                    ? "text-teal-600" 
+                    : "text-gray-600 hover:text-teal-600"
                 )}
               >
                 <IconComponent className="w-4 h-4" />
                 <span>{item.name}</span>
                 {isActive && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-blue-600 rounded-full" />
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-teal-600 rounded-full" />
                 )}
               </Link>
             );
@@ -190,7 +207,7 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16 w-full">
             <Link 
               href="/" 
-              className="text-xl sm:text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors duration-300"
+              className="text-xl sm:text-2xl font-bold text-gray-900 hover:text-teal-600 transition-colors duration-300"
             >
               Waliul Rayhan
             </Link>
@@ -199,7 +216,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300"
+                  className="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300"
                 >
                   {item.name}
                 </Link>
@@ -272,7 +289,7 @@ export default function Navbar() {
                     className={cn(
                       "flex items-center space-x-3 px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 focus:outline-none transform w-full",
                       isActive
-                        ? "text-blue-600 bg-blue-50"
+                        ? "text-teal-600 bg-teal-50"
                         : "text-gray-700 hover:text-gray-900 hover:bg-gray-50",
                       isOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
                     )}
