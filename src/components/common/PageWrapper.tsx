@@ -10,10 +10,15 @@ interface PageWrapperProps {
 }
 
 export default function PageWrapper({ children, className = '' }: PageWrapperProps) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isClient, setIsClient] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
+    // Set isClient to true once component mounts on client
+    setIsClient(true);
+    setIsLoading(true);
+    
     // Simulate page loading - shorter delay for better UX
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -23,6 +28,15 @@ export default function PageWrapper({ children, className = '' }: PageWrapperPro
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Render without animations on server to prevent hydration mismatch
+  if (!isClient) {
+    return (
+      <div className={`relative ${className}`}>
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div className={`relative ${className}`}>

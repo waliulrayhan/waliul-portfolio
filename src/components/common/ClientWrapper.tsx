@@ -11,11 +11,18 @@ interface ClientWrapperProps {
 }
 
 export default function ClientWrapper({ children }: ClientWrapperProps) {
+  const [isClient, setIsClient] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [prevPathname, setPrevPathname] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+    
     // Only show loading if pathname actually changed (not on initial load)
     if (prevPathname !== null && prevPathname !== pathname) {
       setIsLoading(true);
@@ -30,6 +37,11 @@ export default function ClientWrapper({ children }: ClientWrapperProps) {
     
     setPrevPathname(pathname);
   }, [pathname, prevPathname]);
+
+  // Render static content on server to prevent hydration mismatch
+  if (!isClient) {
+    return <>{children}</>;
+  }
 
   return (
     <>

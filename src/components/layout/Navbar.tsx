@@ -21,11 +21,19 @@ const RESUME_CONFIG = {
 } as const;
 
 export default function Navbar() {
+  const [isClient, setIsClient] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Set client flag after mount to prevent hydration issues
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Handle scroll effect for navbar
   useEffect(() => {
+    if (!isClient) return;
+    
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
@@ -176,6 +184,35 @@ export default function Navbar() {
       </button>
     </div>
   );
+
+  // Render simple navbar on server to prevent hydration mismatch
+  if (!isClient) {
+    return (
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 w-full">
+            <Link 
+              href="/" 
+              className="text-xl sm:text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors duration-300"
+            >
+              Waliul Rayhan
+            </Link>
+            <div className="hidden lg:flex items-center space-x-8">
+              {NAVIGATION_ITEMS.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav className={getNavbarStyles()}>
