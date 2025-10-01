@@ -1,51 +1,51 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
 export default function LoadingSpinner() {
+  const balls = [
+    { color: 'bg-red-500', delay: '0s' },
+    { color: 'bg-blue-500', delay: '0.1s' },
+    { color: 'bg-green-500', delay: '0.2s' },
+    { color: 'bg-yellow-500', delay: '0.3s' },
+    { color: 'bg-purple-500', delay: '0.4s' },
+  ];
+
   return (
-    <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center">
-      <div className="flex flex-col items-center space-y-4">
-        {/* Main Loading Spinner */}
-        <div className="relative">
-          <motion.div
-            className="w-16 h-16 border-4 border-blue-200 rounded-full"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          />
-          <motion.div
-            className="absolute top-0 left-0 w-16 h-16 border-4 border-transparent border-t-blue-600 rounded-full"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
+    <>
+      <style jsx>{`
+        @keyframes smoothBounce {
+          0%, 80%, 100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-30px);
+          }
+        }
+        .bouncing-ball {
+          animation: smoothBounce 1.2s infinite ease-in-out;
+        }
+      `}</style>
+      
+      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center">
+        <div className="flex flex-col items-center space-y-6">
+          {/* 5 Bouncing Balls */}
+          <div className="flex items-end space-x-2 h-16">
+            {balls.map((ball, index) => (
+              <div
+                key={index}
+                className={`w-4 h-4 ${ball.color} rounded-full bouncing-ball shadow-lg`}
+                style={{
+                  animationDelay: ball.delay,
+                }}
+              />
+            ))}
+          </div>
 
-        {/* Loading Text */}
-        <motion.div
-          initial={{ opacity: 0.5 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-          className="text-lg font-medium text-gray-700"
-        >
-          Loading...
-        </motion.div>
-
-        {/* Animated Dots */}
-        <div className="flex space-x-1">
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              className="w-2 h-2 bg-blue-600 rounded-full"
-              animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
-              transition={{
-                duration: 1.2,
-                repeat: Infinity,
-                delay: i * 0.2,
-              }}
-            />
-          ))}
+          {/* Loading Text */}
+          {/* <div className="text-lg font-medium text-gray-700 animate-pulse">
+            Loading...
+          </div> */}
         </div>
       </div>
-    </div>
+    </>
   );
 }
