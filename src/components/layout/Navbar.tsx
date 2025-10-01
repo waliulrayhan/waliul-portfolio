@@ -2,28 +2,27 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FiMenu, FiX, FiDownload } from 'react-icons/fi';
+import { FiMenu, FiX, FiHome, FiUser, FiBriefcase, FiFolder, FiEdit3, FiAward, FiMail } from 'react-icons/fi';
 import { cn } from '../../lib/utils';
+import { usePathname } from 'next/navigation';
 
 const NAVIGATION_ITEMS = [
-  { name: 'Home', href: '/', isExternal: false },
-  { name: 'About', href: '/about', isExternal: false },
-  { name: 'Experience', href: '/experience', isExternal: false },
-  { name: 'Projects', href: '/projects', isExternal: false },
-  { name: 'Blog', href: '/blog', isExternal: false },
-  { name: 'Achievements', href: '/achievements', isExternal: false },
-  { name: 'Contact', href: '#contact', isExternal: true },
+  { name: 'Home', href: '/', isExternal: false, icon: FiHome },
+  { name: 'About', href: '/about', isExternal: false, icon: FiUser },
+  { name: 'Experience', href: '/experience', isExternal: false, icon: FiBriefcase },
+  { name: 'Projects', href: '/projects', isExternal: false, icon: FiFolder },
+  { name: 'Blog', href: '/blog', isExternal: false, icon: FiEdit3 },
+  { name: 'Achievements', href: '/achievements', isExternal: false, icon: FiAward },
+  { name: 'Contact', href: '#contact', isExternal: true, icon: FiMail },
 ] as const;
 
-const RESUME_CONFIG = {
-  path: '/resume.pdf',
-  filename: 'Md. Waliul Islam Rayhan\'s CV.pdf',
-} as const;
+
 
 export default function Navbar() {
   const [isClient, setIsClient] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   // Set client flag after mount to prevent hydration issues
   useEffect(() => {
@@ -107,67 +106,65 @@ export default function Navbar() {
     <div className="flex-shrink-0 min-w-0 px-2">
       <Link 
         href="/" 
-        className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent hover:opacity-80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded-sm font-great-vibes inline-block px-1"
+        className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent hover:opacity-80 transition-all duration-200 focus:outline-none font-great-vibes inline-block px-1"
         style={{ overflow: 'visible' }}
       >
-        Waliul Rayhan
+        Waliul Islam Rayhan
       </Link>
     </div>
   );
 
-  const renderDesktopNavigation = () => (
-    <div className="hidden lg:block">
-      <div className="flex items-center space-x-1">
-        {NAVIGATION_ITEMS.map((item) => (
-          item.isExternal ? (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
-              className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50"
-            >
-              {item.name}
-            </a>
-          ) : (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50"
-            >
-              {item.name}
-            </Link>
-          )
-        ))}
-      </div>
-    </div>
-  );
+  const renderDesktopNavigation = () => {
+    const isActiveRoute = (href: string) => {
+      if (href === '/') return pathname === '/';
+      return pathname.startsWith(href);
+    };
 
-  const renderDesktopActions = () => (
-    <div className="hidden lg:flex items-center">
-      <a
-        href={RESUME_CONFIG.path}
-        download={RESUME_CONFIG.filename}
-        aria-label="Download CV as PDF"
-        className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:from-blue-700 hover:to-teal-700 hover:shadow-md transform hover:scale-105 h-9 px-4"
-      >
-        <FiDownload className="mr-2 h-4 w-4" />
-        Download CV
-      </a>
-    </div>
-  );
+    return (
+      <div className="hidden lg:flex flex-1 justify-end">
+        <div className="flex items-center space-x-1">
+          {NAVIGATION_ITEMS.map((item) => {
+            const IconComponent = item.icon;
+            const isActive = item.isExternal ? false : isActiveRoute(item.href);
+            
+            return item.isExternal ? (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
+                className="relative flex items-center space-x-1 text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-200 focus:outline-none group"
+              >
+                <IconComponent className="w-4 h-4" />
+                <span>{item.name}</span>
+              </a>
+            ) : (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "relative flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-all duration-200 focus:outline-none group",
+                  isActive 
+                    ? "text-blue-600" 
+                    : "text-gray-600 hover:text-blue-600"
+                )}
+              >
+                <IconComponent className="w-4 h-4" />
+                <span>{item.name}</span>
+                {isActive && (
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-blue-600 rounded-full" />
+                )}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
+
 
   const renderMobileActions = () => (
-    <div className="lg:hidden flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
-      <a
-        href={RESUME_CONFIG.path}
-        download={RESUME_CONFIG.filename}
-        aria-label="Download CV"
-        className="hidden sm:inline-flex items-center justify-center rounded-md text-xs sm:text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:opacity-90 h-8 px-2 sm:px-3 whitespace-nowrap"
-      >
-        <FiDownload className="h-3 w-3 sm:h-4 sm:w-4" />
-        <span className="ml-1 hidden md:inline">CV</span>
-      </a>
-      
+    <div className="lg:hidden flex items-center flex-shrink-0">
       <button
         id="mobile-menu-button"
         onClick={() => setIsOpen(!isOpen)}
@@ -217,11 +214,9 @@ export default function Navbar() {
   return (
     <nav className={getNavbarStyles()}>
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 w-full">
+        <div className="flex justify-between items-center h-16 w-full lg:flex lg:items-center">
           {renderLogo()}
-
           {renderDesktopNavigation()}
-          {renderDesktopActions()}
           {renderMobileActions()}
         </div>
       </div>
@@ -249,21 +244,25 @@ export default function Navbar() {
         <div className="relative bg-white backdrop-blur-none border-b border-gray-200 shadow-lg w-full">
           <div className="px-4 sm:px-6 py-4 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto w-full">
             <div className="space-y-1 w-full">
-              {NAVIGATION_ITEMS.map((item, index) => (
-                item.isExternal ? (
+              {NAVIGATION_ITEMS.map((item, index) => {
+                const IconComponent = item.icon;
+                const isActive = item.isExternal ? false : (item.href === '/' ? pathname === '/' : pathname.startsWith(item.href));
+                
+                return item.isExternal ? (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleSmoothScroll(e, item.href)}
                     className={cn(
-                      "block px-4 py-3 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50 transform w-full text-left",
+                      "flex items-center space-x-3 px-4 py-3 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 focus:outline-none transform w-full",
                       isOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
                     )}
                     style={{
                       transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
                     }}
                   >
-                    {item.name}
+                    <IconComponent className="w-5 h-5" />
+                    <span>{item.name}</span>
                   </a>
                 ) : (
                   <Link
@@ -271,35 +270,23 @@ export default function Navbar() {
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "block px-4 py-3 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-gray-50 transform w-full text-left",
+                      "flex items-center space-x-3 px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 focus:outline-none transform w-full",
+                      isActive
+                        ? "text-blue-600 bg-blue-50"
+                        : "text-gray-700 hover:text-gray-900 hover:bg-gray-50",
                       isOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
                     )}
                     style={{
                       transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
                     }}
                   >
-                    {item.name}
+                    <IconComponent className="w-5 h-5" />
+                    <span>{item.name}</span>
                   </Link>
-                )
-              ))}
+                );
+              })}
             </div>
-            
-            <div className="pt-4 border-t border-gray-200 w-full">
-              <a
-                href={RESUME_CONFIG.path}
-                download={RESUME_CONFIG.filename}
-                className={cn(
-                  "flex items-center justify-center w-full px-4 py-3 text-base font-medium bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:from-blue-700 hover:to-teal-700 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transform hover:scale-[0.98]",
-                  isOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
-                )}
-                style={{
-                  transitionDelay: isOpen ? `${NAVIGATION_ITEMS.length * 50}ms` : '0ms'
-                }}
-              >
-                <FiDownload className="mr-2 h-5 w-5" />
-                Download CV
-              </a>
-            </div>
+
           </div>
         </div>
       </div>
