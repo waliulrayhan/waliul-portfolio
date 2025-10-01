@@ -2,11 +2,11 @@
 
 export default function LoadingSpinner() {
   const balls = [
-    { color: 'bg-red-500', delay: '0s' },
-    { color: 'bg-blue-500', delay: '0.1s' },
-    { color: 'bg-green-500', delay: '0.2s' },
-    { color: 'bg-yellow-500', delay: '0.3s' },
-    { color: 'bg-purple-500', delay: '0.4s' },
+    { color: 'bg-blue-700', delay: '0s' },
+    { color: 'bg-blue-600', delay: '0.1s' },
+    { color: 'bg-teal-600', delay: '0.2s' },
+    { color: 'bg-blue-500', delay: '0.3s' },
+    { color: 'bg-teal-700', delay: '0.4s' },
   ];
 
   return (
