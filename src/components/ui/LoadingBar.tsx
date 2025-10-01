@@ -18,7 +18,7 @@ export default function LoadingBar({ isLoading }: LoadingBarProps) {
             duration: 0.8,
             ease: "easeInOut"
           }}
-          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 z-[60] origin-left"
+          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-teal-600 z-[60] origin-left"
           style={{
             transformOrigin: 'left center'
           }}
