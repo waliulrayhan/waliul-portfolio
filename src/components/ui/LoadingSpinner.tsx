@@ -25,7 +25,7 @@ export default function LoadingSpinner() {
         }
       `}</style>
       
-      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center">
+      <div className="fixed inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center z-50">
         <div className="flex flex-col items-center space-y-6">
           {/* 5 Bouncing Balls */}
           <div className="flex items-end space-x-2 h-16">
